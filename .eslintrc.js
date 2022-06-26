@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'space-before-function-paren': 'off' // data格式化有问题配置
+    'space-before-function-paren': 'off', // data格式化有问题配置
+    'vue/no-mutating-props': 'off'
   }
 }

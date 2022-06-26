@@ -2,8 +2,13 @@
   <div class="my-goods-item">
     <div class="left">
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="input" />
-        <label class="custom-control-label" for="input">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          :id="item.goods_id"
+          v-model="item.goods_state"
+        />
+        <label class="custom-control-label" :for="item.goods_id">
           <img :src="item.goods_img" alt="" />
         </label>
       </div>
@@ -12,7 +17,7 @@
       <div class="top">{{ item.goods_name }}</div>
       <div class="bottom">
         <span class="price">¥ {{ item.goods_price }}</span>
-        <span> <MyCount></MyCount> </span>
+        <span> <MyCount :item="item"></MyCount> </span>
       </div>
     </div>
   </div>

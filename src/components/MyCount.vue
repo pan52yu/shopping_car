@@ -1,8 +1,12 @@
 <template>
   <div class="my-counter">
-    <button type="button" class="btn btn-light">-</button>
+    <button type="button" class="btn btn-light" @click="item.goods_count--">
+      -
+    </button>
     <input type="number" class="form-control inp" v-model="item.goods_count" />
-    <button type="button" class="btn btn-light">+</button>
+    <button type="button" class="btn btn-light" @click="item.goods_count++">
+      +
+    </button>
   </div>
 </template>
 
@@ -11,6 +15,17 @@ export default {
   props: {
     item: {
       type: Object
+    }
+  },
+  watch: {
+    item: {
+      deep: true,
+      immediate: true,
+      handler(newValue) {
+        if (newValue.goods_count < 0) {
+          this.item.goods_count = 0
+        }
+      }
     }
   }
 }

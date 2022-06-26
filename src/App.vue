@@ -40,5 +40,7 @@ export default {
 <style lang="less">
 #app {
   padding: 50px 0;
+  height: 100vh;
+  overflow: auto;
 }
 </style>

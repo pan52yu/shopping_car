@@ -14,7 +14,7 @@
     <!-- 合计 -->
     <div>
       <span>合计:</span>
-      <span class="price">¥ 0</span>
+      <span class="price">¥ {{ allPrice }}</span>
     </div>
     <!-- 按钮 -->
     <button type="button" class="footer-btn btn btn-primary">
@@ -44,6 +44,13 @@ export default {
       set(val) {
         this.goodsList.forEach((item) => (item.goods_state = val))
       }
+    },
+    allPrice() {
+      return this.goodsList.reduce(
+        (pre, curr) =>
+          curr.goods_state ? pre + curr.goods_count * curr.goods_price : pre,
+        0
+      )
     }
   }
 }
